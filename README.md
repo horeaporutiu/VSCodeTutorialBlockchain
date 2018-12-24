@@ -186,38 +186,48 @@ The extension will do some work, and then you should see in the bottom-right cor
 was successfully instantiated. Hooray!!
 
 ## Step 6. Importing the certificate and key
-![packageFile](/docs/gitPull.gif)
+![packageFile](/docs/exportProfile.gif)
 
 At this point, we need to start interacting a bit more closely with our
 Fabric instance. We'll need to prove to the certificate authority that we are allowed
 to create a digital identity on the network. This is done by showing the certificate
 authority our certificate and private key.
 
-1. In VSCode, click on the IBM Blockchain Platform extension in the left sidebar.
-
-2. Under `Blockchain Connections` in the bottom-left corner, right-click on the `local_fabric`
-connection, and select `Export Connection Details`. Then you can choose the current smart 
-contract folder to save the connection profile. 
-
-3. You should see something like: 
-
-```
-Successfully exported connection details to /Users/Horea.Porutiu@ibm.com/Workdir/demoContract/local_fabric
-```
-
-4. We now need a script to create a new identity on the network. Clone this
+1. We now need a script to create a new identity on the network. Clone this
 Github Repo outside of your smart contract directory 
-to get the script. You can find the script under `VSCodeLocalNetwork/addIdentity.js`.
+to get the script. You can find the script under `VSCodeTutorialBlockchain/addIdentity.js`.
 
   ```
-  $ git clone https://github.com/horeaporutiu/VSCodeLocalNetwork.git
+  $ git clone https://github.com/horeaporutiu/VSCodeTutorialBlockchain.git
   ```
 
-5. Import this folder into your VSCode workspace by right-clicking an empty space
+2. Import this folder into your VSCode workspace by right-clicking an empty space
 under your smart contract directory in VSCode and selecting **Add folder to workspace**. 
-Find the recently clone folder `VSCodeLocalNetwork` and double-click it.
+Find the recently clone folder `VSCodeTutorialBlockchain` and double-click it.
 
-6. Take a look at `VSCodeLocalNetwork/addIdentity.js`. You will find the 
+3. In VSCode, click on the IBM Blockchain Platform extension in the left sidebar.
+
+4. If you are connected to the `local_farbic` click on the **left arrow** symbol to 
+go back to your blockchain connections. 
+
+5. Under `Blockchain Connections` in the bottom-left corner, right-click on the `local_fabric`
+connection, and select `Export Connection Details`. Then choose to export the details in the 
+**VSCodeTutorialBlockchain directory**. 
+
+6. You should see something like: 
+
+```
+Successfully exported connection details to 
+/Users/Horea.Porutiu@ibm.com/Workdir/VSCodeTutorialBlockchain/local_fabric
+```
+
+## Step 7. Adding an Identity
+![packageFile](/docs/addIdentityScript.gif)
+
+Now that we have exported our certificate and private key, and we have a script 
+to create a digital identity, we are ready to add members to our network. 
+
+1. Take a look at `VSCodeTutorialBlockchain/addIdentity.js`. You will find the 
 following code: 
 
 ```
@@ -260,18 +270,16 @@ main().then(()=>{
 
 This code creates an identity by passing in our certificate and private key.
 Notice we are using the `fabric-network` NPM package to call the `createIdentity` method, 
-and then using the `import` function to add that identity to our wallet. The most important line of this file
-is the `await wallet.import(identityLabel, X509WalletMixin.createIdentity('Org1MSP', cert, key));` line
-which actually creates a new MSP identity using our cert and key file. This [MSP(Membership Service Provider)](https://hyperledger-fabric.readthedocs.io/en/release-1.3/msp.html) identity will be able to connect to the 
-network and invoke smart contracts.
+and then using the `import` function to add that identity to our wallet. 
+The most important line of this file
+is the 
+`await wallet.import(identityLabel, X509WalletMixin.createIdentity('Org1MSP', cert, key));` line
+which actually creates a new MSP identity using our cert and key file.
+This [MSP(Membership Service Provider)](https://hyperledger-fabric.readthedocs.io/en/release-1.3/msp.html)
+identity will be able to connect to the network and invoke smart contracts.
 
-## Step 7. Adding an Identity
-![packageFile](/docs/addIdentityScript.gif)
-Now that we have an identity that can interact with our network, we need to 
-to run `npm install` to install all the dependencies that are needed to connect to our local Fabric network. 
-
-1. Run `npm install` in the `VSCodeLocalNetwork`.
-2. Then, run `node addIdentity`. You should see that this command creates a new folder called `_idwallet`
+2. Next, run `npm install` in the `VSCodeTutorialBlockchain` folder.
+3. Then, run `node addIdentity`. You should see that this command creates a new folder called `_idwallet`
  and populates that folder with the MSP identity, which in our case goes by the name of
 `User1@org1.example.com`. Nice job! 
 
