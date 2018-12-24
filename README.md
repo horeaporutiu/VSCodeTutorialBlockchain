@@ -224,9 +224,9 @@ Successfully exported connection details to
 ## Step 7. Adding an Identity
 ![packageFile](/docs/addIdentityScript.gif)
 
-**Please note that the gifs are a bit outdated from this step,
+⚠️🚧🚧️️️⚠️**Please note that the gifs are a bit outdated from this step,
 and have a folder called VSCodeLocalNetwork, but yours 
-should be named VSCodeTutorialBlockchain. All commands are the same.**
+should be named VSCodeTutorialBlockchain. All commands are the same.**⚠️🚧🚧️️️⚠️
 
 Now that we have exported our certificate and private key, and we have a script 
 to create a digital identity, we are ready to add members to our network. 
