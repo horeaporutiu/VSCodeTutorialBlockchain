@@ -13,8 +13,8 @@ async function main(){
     try {
 
         // define the identity to use
-        const cert = fs.readFileSync('../../smartContractDec2018/local_fabric/certificate').toString();
-        const key = fs.readFileSync('../../smartContractDec2018/local_fabric/privateKey').toString();
+        const cert = fs.readFileSync('./local_fabric/certificate').toString();
+        const key = fs.readFileSync('./local_fabric/privateKey').toString();
         const identityLabel = 'User1@org1.example.com';
 
         // prep wallet and test it at the same time
