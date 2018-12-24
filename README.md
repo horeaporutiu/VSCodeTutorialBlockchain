@@ -207,7 +207,7 @@ Find the recently clone folder `VSCodeTutorialBlockchain` and double-click it.
 
 3. In VSCode, click on the IBM Blockchain Platform extension in the left sidebar.
 
-4. If you are connected to the `local_farbic` click on the **left arrow** symbol to 
+4. If you are connected to the `local_fabric` click on the **left arrow** symbol to 
 go back to your blockchain connections. 
 
 5. Under `Blockchain Connections` in the bottom-left corner, right-click on the `local_fabric`
