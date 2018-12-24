@@ -1,0 +1,13 @@
+let response = await contract.submitTransaction('addMember', 'ginny@ibm.com', 'Ginny Rometty', 'Wall Street, NY', '1234567890');
+
+let response = await contract.submitTransaction('addMember', 'arvind@ibm.com', 'Arvind Krishna', 'Broadway Street, NY', '1231231111');
+
+const channel = network.getChannel();
+let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['ginny@ibm.com'] };
+let resultBuffer = await channel.queryByChaincode(request);
+console.log(JSON.parse(resultBuffer.toString()))
+
+const channel = network.getChannel();
+let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['arvind@ibm.com'] };
+let resultBuffer = await channel.queryByChaincode(request);
+console.log(JSON.parse(resultBuffer.toString()))
