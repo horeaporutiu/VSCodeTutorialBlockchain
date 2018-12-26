@@ -429,7 +429,7 @@ right-click on `demoContract` and choose **Upgrade Smart Contract**. If all goes
 well you should get a notification in the bottom right corner saying 
 **Successfully upgraded smart contract**.
 
-![packageFile](/docs/addMember.gif)
+![packageFile](/docs/addMember2nd.gif)
 
 5. Now, we can invoke our transactions from the VSCode extension. Under `Blockchain Connections` from the bottom-left
 corner of our IBM Blockchain Extension, under `mychannel` expand `peer0.org1.example.com` and then expand the `demoContract`
