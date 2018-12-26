@@ -337,64 +337,20 @@ certificateAuthorities:
 
 Ok, so we've instantiated our contract, created our identity, so now what?
 Well now, let's actually invoke the functions in our contract! To do this, 
-we will need to invoke a script from our `VSCodeTutorialBlockchain` directory. 
+we can use our VSCode extension. 
 
-1. From our `VSCodeTutorialBlockchain` directory, we should have a file called `invoke.js`. 
-Let's examine this file.
+1. From VSCode, click on the IBM Blockchain Platform Icon (The square) on the left-hand side
+of VSCode.
 
-2. After we create an instance of the `fabric-network`, we connect to the network with the following code:
-```
-await gateway.connect(connectionProfile, connectionOptions);
-```
+2. Click on `local_fabric`.
 
-Notice here that the connection profile is the `network.yaml` file that we updated in the previous step, and the `connectionOptions` is an object which contains the credentials from our `_idwallet` directory. 
+3. Expand `mychannel`, and then expand `demoContract@0.0.1`. You should see two functions,
+**instantiate** and **transaction1**.
 
-3. After we connect to the network, we need to specify the channel to connect to, which 
-in our case happens to be `mychannel`. This line connects to our channel:
+4. Right click on **transaction1** and then select `submit transaction`. For the arguments,
+enter in 'hello'. 
 
-```
-const network = await gateway.getNetwork('mychannel');
-```
-
-4. Our channel may have many contracts installed, so in the next line, we specify which contract
-to invoke. In our case, this is `demoContract`. 
-
-```
-const contract = await network.getContract('demoContract');
-```
-
-5. The final part of our script picks which function to invoke, and specifies the arguments. In 
-our case we are invoking `transaction1` with an arg of `hello` as can be seen
-here: 
-
-```
-let response = await contract.submitTransaction('transaction1', 'hello');
-```
-
-6. Now, we can run the script, with this command:
-
-```
-$ node invoke.js
-```
-If you get an error, check your `network.yaml` file and make sure the ports are the same as shown in your 
-logs from the `docker ps` command.
-
-If all goes well, you should see the following output:
-
-```
-VSCodeLocalNetwork$ node invoke.js
-Connected to Fabric gateway.
-Connected to mychannel.
-
-Submit hello world transaction.
-info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "9bf00460721a9d42dfe0d3bf93151f10be8b0a57011d4b24262ef03d5a33ee5e"
-
-{ text: 'hello' }
-Disconnect from Fabric gateway.
-done
-```
-
-Woo!! That's it! Nice job!
+Nice job! You've just invoked your smart contract through VSCode!
 
 ## Step 10. Updating the smart contract
 ![packageFile](/docs/upgrade.gif)
