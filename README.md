@@ -456,7 +456,7 @@ Nice job. Now on to the last step!
 
 
 ## Step 11. Querying the ledger
-![packageFile](/docs/query.gif)
+![packageFile](/docs/query2nd.gif)
 After we have added some objects on the ledger, it's time to query the ledger to see if 
 our data is properly stored on the CouchDB instance of our local fabric network.
 
