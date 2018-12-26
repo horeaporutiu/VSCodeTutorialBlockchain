@@ -508,7 +508,7 @@ let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['ginny@ibm.com
 Your output should be as follows: 
 
 ```
-VSCodeLocalNetwork$ node query.js
+VSCodeTutorialBlockchain$ node query.js
 Connected to Fabric gateway.
 {"address":" Wall Street NY","email":"ginny@ibm.com","name":" Ginny Rometty","number":" 1234567890"}
 Disconnect from Fabric gateway.
