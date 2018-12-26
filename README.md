@@ -288,12 +288,12 @@ identity will be able to connect to the network and invoke smart contracts.
 `User1@org1.example.com`. Nice job! 
 
 ## Step 8. Updating network ports
-![packageFile](/docs/addPorts.gif)
+![packageFile](/docs/ports.gif)
 
-1. Next, open the `network.yaml` in the `VSCodeLocalNetwork` folder. We will use this file to connect 
-to our Docker containers running locally.
+1. Next, open the `network.yaml` in the `VSCodeTutorialBlockchain` folder. 
+We will use this file to connect to our Docker containers running locally.
 
-2. To see your docker containers running locally, open the `demoContract/local_fabric/connection.json`
+2. To see your Docker containers running locally, open the `demoContract/local_fabric/connection.json`
 file.
 
 ![packageFile](/docs/ports.png)
@@ -337,9 +337,9 @@ certificateAuthorities:
 
 Ok, so we've instantiated our contract, created our identity, so now what?
 Well now, let's actually invoke the functions in our contract! To do this, 
-we will need to invoke a script from our `VSCodeLocalNetwork` directory. 
+we will need to invoke a script from our `VSCodeTutorialBlockchain` directory. 
 
-1. From our `VSCodeLocalNetwork` directory, we should have a file called `invoke.js`. 
+1. From our `VSCodeTutorialBlockchain` directory, we should have a file called `invoke.js`. 
 Let's examine this file.
 
 2. After we create an instance of the `fabric-network`, we connect to the network with the following code:
