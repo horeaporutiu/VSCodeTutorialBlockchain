@@ -530,9 +530,9 @@ The output should be similar to the one above, except with Arvind's data.
 Testing functionality is a feature of the IBM Blockchain extension, and can be done 
 through the UI.
 
-1. Now, we can invoke our transactions from the VSCode extension. Under `Blockchain Connections`
-from the bottom-left corner of our IBM Blockchain Extension, under `mychannel` right-click 
-on your latest smart contract `demoContract@0.0.2` and then select **Generate Smart Contract Tests**.
+1. Under `Blockchain Connections` from the bottom-left corner of our IBM Blockchain Extension, 
+under `mychannel` right-click on your latest smart contract `demoContract@0.0.2`
+and then select **Generate Smart Contract Tests**.
 
 2. Once the extension is done generating the tests, you can run npm test from the `demoContract` 
 directory, or you could click on the `run test` button from the VSCode UI from the 
