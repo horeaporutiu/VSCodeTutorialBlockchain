@@ -62,7 +62,8 @@ You can check your installed versions by running the following commands from a t
 9. [Invoking the smart contract](#step-9-invoking-the-smart-contract)
 10. [Updating the smart contract](#step-10-updating-the-smart-contract)
 11. [Querying the ledger](#step-11-querying-the-ledger)
-12. [Conclusion](#step-12-conclusion)
+12. [Testing your contract](#step-12-testing-your-contract)
+13. [Conclusion](#step-13-conclusion)
 
 ## Let's get started
 ![packageFile](/docs/installExtension.gif)
@@ -523,7 +524,22 @@ let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['arvind@ibm.co
 
 The output should be similar to the one above, except with Arvind's data.
 
-### Step 12. Conclusion
+### Step 12. Testing your contract
+![packageFile](/docs/test.gif)
+
+Testing functionality is a feature of the IBM Blockchain extension, and can be done 
+through the UI.
+
+1. Now, we can invoke our transactions from the VSCode extension. Under `Blockchain Connections`
+from the bottom-left corner of our IBM Blockchain Extension, under `mychannel` right-click 
+on your latest smart contract `demoContract@0.0.2` and then select **Generate Smart Contract Tests**.
+
+2. Once the extension is done generating the tests, you can run npm test from the `demoContract` 
+directory, or you could click on the `run test` button from the VSCode UI from the 
+`demoContract@0.0.2.test.js` file, as shown in the gif.
+
+
+### Step 13. Conclusion
 
 Nice job! You are done! You learned how to create, package, install, instantiate, 
 invoke, AND query a smart contract using Hyperledger's newest API's. At this point, 
