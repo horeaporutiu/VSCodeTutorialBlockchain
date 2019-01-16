@@ -20,7 +20,10 @@ async function main() {
 
     let connectionOptions = {
       identity: identityLabel,
-      wallet: wallet
+      wallet: wallet,
+      discovery: {
+        asLocalhost: true
+      }
     };
 
     // Connect to gateway using network.yaml file and our certificates in _idwallet directory
@@ -31,14 +34,16 @@ async function main() {
     // Connect to our local fabric
     const network = await gateway.getNetwork('mychannel');
 
-    const channel = network.getChannel();
-    
-    //set up our request - specify which chaincode, which function, and which arguments
-    let request = { chaincodeId: 'smartContractDec2018', fcn: 'query', args: ['GREETING'] };
-    
-    //query the ledger by the key in the args above
-    let resultBuffer = await channel.queryByChaincode(request);
-    console.log(JSON.parse(resultBuffer.toString()))
+    console.log('Connected to mychannel. ');
+
+    // Get the contract we have installed on the peer
+    const contract = await network.getContract('demoContract');
+
+    console.log('\nSubmit hello world transaction.');
+
+    let response = await contract.evaluateTransaction('query', 'GREETING');
+    console.log(JSON.parse(response.toString()));
+    return response;
 
   } catch (error) {
     console.log(`Error processing transaction. ${error}`);

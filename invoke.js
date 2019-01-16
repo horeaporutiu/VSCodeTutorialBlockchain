@@ -20,7 +20,10 @@ async function main() {
 
     let connectionOptions = {
       identity: identityLabel,
-      wallet: wallet
+      wallet: wallet,
+      discovery: {
+        asLocalhost: true
+      }
     };
 
     // Connect to gateway using network.yaml file and our certificates in _idwallet directory
@@ -34,12 +37,12 @@ async function main() {
     console.log('Connected to mychannel. ');
 
     // Get the contract we have installed on the peer
-    const contract = await network.getContract('smartContractDec2018');
+    const contract = await network.getContract('demoContract');
 
     console.log('\nSubmit hello world transaction.');
 
-    let response = await contract.submitTransaction('transaction1', 'hello');
-    console.log(JSON.parse(response.toString()));
+    let response = await contract.submitTransaction('instantiate');
+    console.log(response.toString())
     return response;
 
   } catch (error) {
