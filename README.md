@@ -465,18 +465,18 @@ our data is properly stored on the CouchDB instance of our local fabric network.
 key differences:
 
 ```
-const channel = network.getChannel();
-    
-//set up our request - specify which chaincode, which function, and which arguments
-let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['GREETING'] };
+const network = await gateway.getNetwork('mychannel');
 
-//query the ledger by the key in the args above
-let resultBuffer = await channel.queryByChaincode(request);
+// Get the contract we have installed on the peer
+const contract = await network.getContract('demoContract');
+
+let response = await contract.evaluateTransaction('query', 'GREETING');
 ```
 
-The main difference is that in this file, we use the `queryByChaincode` API, which 
-**reads** from the ledger. This is very important. In our `invoke.js` file, we submit 
-transactions to the ledger, which will all get **written to the ledger** 
+The main difference is that in this file, we use the `evaluateTransaction` API, which 
+**does not send the transactions to the ordering service** hence, it will not update the ledger.
+This is very important. In our `invoke.js` file, we submit 
+transactions to the ordering service, which will all get **written to the ledger** 
 but here, in our `query.js` file, we will not update the ledger. 
 
 2. Run the script, to find the value stored in the `GREETING` variable:
