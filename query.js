@@ -5,7 +5,8 @@ const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
 
 // A wallet stores a collection of identities for use
-const wallet = new FileSystemWallet('./_idwallet');
+// const wallet = new FileSystemWallet('./_idwallet');
+const wallet = new FileSystemWallet('./local_fabric/wallet');
 
 async function main() {
 
@@ -15,7 +16,7 @@ async function main() {
   // Main try/catch block
   try {
 
-    const identityLabel = 'User1@org1.example.com';
+    const identityLabel = 'Admin@org1.example.com';
     let connectionProfile = yaml.safeLoad(fs.readFileSync('./network.yaml', 'utf8'));
 
     let connectionOptions = {
@@ -34,16 +35,15 @@ async function main() {
     // Connect to our local fabric
     const network = await gateway.getNetwork('mychannel');
 
-    console.log('Connected to mychannel. ');
+    console.log('\nSubmit query transaction.');
 
-    // Get the contract we have installed on the peer
-    const contract = await network.getContract('demoContract');
+    const channel = network.getChannel();
+    //set up our request - specify which chaincode, which function, and which arguments
+    let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['GREETING'] };
+    //query the ledger by the key in the args above
+    let resultBuffer = await channel.queryByChaincode(request);
 
-    console.log('\nSubmit hello world transaction.');
-
-    let response = await contract.evaluateTransaction('query', 'GREETING');
-    console.log(JSON.parse(response.toString()));
-    return response;
+    console.log(JSON.parse(resultBuffer.toString()))
 
   } catch (error) {
     console.log(`Error processing transaction. ${error}`);
