@@ -5,7 +5,7 @@ const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
 
 // A wallet stores a collection of identities for use
-const wallet = new FileSystemWallet('./_idwallet');
+const wallet = new FileSystemWallet('./local_fabric/wallet');
 
 async function main() {
 
