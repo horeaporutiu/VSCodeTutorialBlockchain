@@ -1,5 +1,7 @@
 # Use IBM Blockchain Platform extension in VSCode to develop a Smart Contract
 
+Official tutorial: https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/
+
 In this tutorial, we will learn the process of using IBM Blockchain Platform's VSCode extension 
 to  streamline the 
 process of developing, testing, and deploying a smart contract. Once we finish the 
@@ -48,7 +50,7 @@ You can check your installed versions by running the following commands from a t
 
 ### Estimated time
 - After the prerequisites are installed, this should take <b>approximately 30-45 minutes</b> to complete.
-
+<!-- 
 # Steps
 
 1. [Creating a new smart contract project](#step-1-creating-a-new-smart-contract-project)
@@ -548,7 +550,7 @@ file knowing that you have taken care of the networking aspects of blockchain,
 and that you can successfully invoke, and update your ledger using just VSCode,
 Node.js, and Docker. Please, please, please reach out to me if there are bugs,
 comment on this post, and tell me, and I will fix them. Thanks so much for 
-reading this post, and hope you enjoyed it! Horea Blockchain out!
+reading this post, and hope you enjoyed it! Horea Blockchain out! -->
 
 # Links
 
