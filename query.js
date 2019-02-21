@@ -37,13 +37,13 @@ async function main() {
 
     console.log('\nSubmit query transaction.');
 
-    const channel = network.getChannel();
-    //set up our request - specify which chaincode, which function, and which arguments
-    let request = { chaincodeId: 'demoContract', fcn: 'query', args: ['GREETING'] };
-    //query the ledger by the key in the args above
-    let resultBuffer = await channel.queryByChaincode(request);
+    const contract = await network.getContract('demoContract');
 
-    console.log(JSON.parse(resultBuffer.toString()))
+    console.log('\nSubmit hello world transaction.');
+
+    let response = await contract.evaluateTransaction('query', 'GREETING');
+
+    console.log(JSON.parse(response.toString()))
 
   } catch (error) {
     console.log(`Error processing transaction. ${error}`);
